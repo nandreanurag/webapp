@@ -75,8 +75,7 @@ public class ProductService {
 	public String deleteProductDetails(Long productId) throws DataNotFoundExeception {
 		Product p = getProduct(productId);
 		productRepo.deleteById(p.getId());
-//		imageService.deleteImageByProductId(productId, p.getOwnerUserId());
-//		Need to do
+		imageService.deleteImageByProductId(productId, p.getOwnerUserId());
 		return "Deleted Product";
 	}
 
@@ -114,9 +113,9 @@ public class ProductService {
 				p.setManufacturer(manufacture);
 				break;
 			case "quantity":
-//				Integer quantity = Integer.valueOf(String.valueOf(map.getValue()));
-				// Need to fix
-				Integer quantity=0;
+//				String qString = String.valueOf(map.getValue());
+//				Integer quantity=Integer.parseInt(qString)
+				int quantity=0;
 				if (quantity < 0 || quantity > 100)
 					throw new InvalidInputException("Product quantity should be btw 1 and 100");
 				p.setQuantity(quantity);
