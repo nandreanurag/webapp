@@ -80,7 +80,7 @@ build {
 
 
   provisioner "file" {
-    source      = "webservice.service
+    source      = "webservice.service"
     destination = "/tmp/"
   }
 
